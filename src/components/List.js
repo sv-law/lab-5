@@ -17,8 +17,15 @@ function Task(props) {
 		}));
 	}
 
+
+	function onClick() {
+		// Find the task to delete and remove it
+		props.setTasks(tasks => tasks.filter(task => task.id !== props.id))
+	}
+
 	return (
 		<li>
+			<button type="button" onClick={onClick}>X</button>
 			{ props.description } 
 			<input 
 				type="checkbox" 
@@ -28,6 +35,7 @@ function Task(props) {
 		</li>
 	);
 }
+
 
 function List(props) {
 	return (
